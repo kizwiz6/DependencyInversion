@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace DependencyInversion
 {
-    internal class EverViewerLogger : ILogger
+    /// <summary>
+    /// Implementation of logger that logs errors to Event Viewer.
+    /// </summary>
+    internal class EventViewerLogger : ILogger
     {
         public void Handle(string error)
         {
             // Log errors to event viewer
+            Console.WriteLine("Error logged to Event Viewer: " + error);
         }
     }
 }
