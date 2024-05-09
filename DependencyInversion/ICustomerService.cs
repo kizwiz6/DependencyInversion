@@ -9,7 +9,7 @@ namespace DependencyInversion
     /// <summary>
     /// Interface defining the behaviour of a customer service.
     /// </summary>
-    internal interface ICustomerService
+    public interface ICustomerService
     {
         void Add();
     }

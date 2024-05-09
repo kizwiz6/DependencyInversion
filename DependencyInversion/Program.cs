@@ -1,6 +1,6 @@
 ﻿namespace DependencyInversion
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -23,6 +23,27 @@
             ILogger eventViewerLogger = new EventViewerLogger();
             ICustomerService eventViewerCustomerService = new CustomerService(eventViewerLogger);
             eventViewerCustomerService.Add();
+
+            // Create some sample products
+            Product laptop = new Product(1, "Laptop", 999.99m);
+            Product phone = new Product(2, "Phone", 499.99m);
+            Product headphones = new Product(3, "Headphones", 99.9m);
+
+            // Create a new shopping cart
+            ICart cart = new Cart();
+
+            // Add products to the cart
+            cart.AddProduct(laptop, 1);
+            cart.AddProduct(phone, 2);
+            cart.AddProduct(headphones, 1);
+
+            Console.WriteLine(laptop);
+            Console.WriteLine(phone);
+            Console.WriteLine(headphones);
+
+            // Calculate and display the total price
+            decimal totalPrice = cart.CalculateTotal();
+            Console.WriteLine($"Total Price: ${totalPrice}");
         }
     }
 }

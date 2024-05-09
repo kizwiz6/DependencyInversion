@@ -9,7 +9,7 @@ namespace DependencyInversion
     /// <summary>
     /// Implementation of the customer service.
     /// </summary>
-    internal class CustomerService : ICustomerService
+    public class CustomerService : ICustomerService
     {
         private readonly ILogger _logger;
 

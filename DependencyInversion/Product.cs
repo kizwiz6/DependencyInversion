@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DependencyInversion
 {
-    internal class Product
+    public class Product
     {
         public int Id { get; }
         public string Name { get; }
@@ -17,6 +17,11 @@ namespace DependencyInversion
             this.Id = id;
             this.Name = name;
             this.Price = price;
+        }
+
+        public override string ToString()
+        {
+            return $"Product ID: {Id}, Name: {Name}, Price: {Price}";
         }
     }
 }

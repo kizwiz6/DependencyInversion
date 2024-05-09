@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DependencyInversion
 {
-    internal class Cart : ICart
+    public class Cart : ICart
     {
         // List of cart items (product and quantity).
         private readonly List<(Product product, int quantity)> _items = new List<(Product product, int quantity)>();
@@ -44,20 +44,20 @@ namespace DependencyInversion
 
         public void UpdateQuantity(Product product, int quantity)
         {
-            // Ensure that the quantity is not negative.
-            if (quantity > 0)
+            // Ensure that the quantity is not negative
+            if (quantity < 0)
             {
                 throw new ArgumentException("Quantity cannot be negative.");
             }
 
-            // Remove the product from the cart if the quantity is zero.
+            // Remove the product from the cart if the quantity is zero
             if (quantity == 0)
             {
                 RemoveProduct(product);
                 return;
             }
 
-            // Find the item in the cart and update its quantity.
+            // Find the item in the cart and update its quantity
             var item = _items.FirstOrDefault(item => item.product.Id == product.Id);
             if (item.product != null)
             {
@@ -65,10 +65,14 @@ namespace DependencyInversion
             }
             else
             {
-                // If the product is not in the cart, add it.
+                // If the product is not in the cart, add it
                 _items.Add((product, quantity));
             }
+        }
 
+        public List<(Product product, int quantity)> GetItems()
+        {
+            return _items;
         }
     }
 }

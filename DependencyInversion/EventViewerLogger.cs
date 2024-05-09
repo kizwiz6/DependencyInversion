@@ -9,7 +9,7 @@ namespace DependencyInversion
     /// <summary>
     /// Implementation of logger that logs errors to Event Viewer.
     /// </summary>
-    internal class EventViewerLogger : ILogger
+    public class EventViewerLogger : ILogger
     {
         public void Handle(string error)
         {

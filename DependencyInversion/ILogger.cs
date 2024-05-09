@@ -9,7 +9,7 @@ namespace DependencyInversion
     /// <summary>
     /// Interface defining the behaviour of a logger.
     /// </summary>
-    internal interface ILogger
+    public interface ILogger
     {
         /// <summary>
         /// Handles an error.

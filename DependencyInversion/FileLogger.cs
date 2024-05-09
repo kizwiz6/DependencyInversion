@@ -9,7 +9,7 @@ namespace DependencyInversion
     /// <summary>
     /// Implementation of logger that writes errors to a file.
     /// </summary>
-    internal class FileLogger : ILogger
+    public class FileLogger : ILogger
     {
         public void Handle(string error)
         {

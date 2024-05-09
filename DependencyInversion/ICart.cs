@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DependencyInversion
 {
-    internal interface ICart
+   public interface ICart
     {
         void AddProduct(Product product, int quantity);
         void RemoveProduct(Product product);

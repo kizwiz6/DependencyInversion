@@ -9,7 +9,7 @@ namespace DependencyInversion
     /// <summary>
     /// Implementation of logger that sends errors via email.
     /// </summary>
-    internal class EmailLogger : ILogger
+    public class EmailLogger : ILogger
     {
         /// <summary>
         /// Handles an error by sending it via email.
